@@ -3,39 +3,37 @@ body {
 }
 
 .sidebar {
-    grid-area: sidebar;
-  }
+  grid-area: sidebar;
+}
 
-  .content {
-    grid-area: content;
-  }
+.content {
+  grid-area: content;
+}
 
-  .header {
-    grid-area: header;
-  }
+.header {
+  grid-area: header;
+}
 
-  .footer {
-    grid-area: footer;
-  }
+.footer {
+  grid-area: footer;
+}
 
-
-  .wrapper {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 15% 85%;
-    grid-template-areas:
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 15% 85%;
+  grid-template-areas:
     "....... header header"
     "sidebar content content"
     "footer  footer  footer";
-    background-color: #fff;
-    color: #444;
+  background-color: #fff;
+  color: #444;
+}
+@media (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 40% 60%;
   }
-  @media (max-width: 768px) {
-    .wrapper {
-      grid-template-columns: 40% 60%;
-    }
-  }
-
+}
 
 .box {
   background-color: #444;
