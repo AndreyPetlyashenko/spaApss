@@ -7,14 +7,18 @@ const List = ({ selectedUsersIsShown, filterOptions }) => {
     const [users, setUsers] = useContext(UserContext)
 
     // localStorage.clear(); 
-    let  storedUsers = JSON.parse(localStorage.getItem("selectedUsers"));
+  
     
-    if (storedUsers == undefined || storedUsers[0] == `null`) {
+    if (!localStorage.getItem("selectedUsers")) {
         localStorage.setItem("selectedUsers", JSON.stringify([]))
     }
-    
+
+    let  storedUsers = JSON.parse(localStorage.getItem("selectedUsers"));
+
     console.log(storedUsers, 'storedUSERS')
+
     users.selectedUsers.map((user) => !storedUsers.includes(user) && storedUsers.push(user))
+    
     localStorage.setItem("selectedUsers", JSON.stringify(storedUsers))
     
    
