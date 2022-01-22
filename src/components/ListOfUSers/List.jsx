@@ -27,13 +27,13 @@ const List = ({ selectedUsersIsShown, filterOptions }) => {
     const filteredUsers = (users) => {
         return users.filter((i) => {
             if (filterOptions.id && filterOptions.login) {
-                return filterOptions.id == i.id && i.login.includes(filterOptions.login)
+                return filterOptions.id == i.id && i.login?.includes(filterOptions.login)
             }
             if (filterOptions.id) {
                 return filterOptions.id == i.id
             }
             if (filterOptions.login) {
-                return i.login.includes(filterOptions.login)
+                return i.login?.includes(filterOptions.login)
             }
             return i
         })
@@ -44,7 +44,7 @@ const List = ({ selectedUsersIsShown, filterOptions }) => {
             {
                 selectedUsersIsShown ?
                     <div className="listContainer selectedListContainer" >
-                        {filteredUsers(users.data).filter((i) => storedUsers.includes(i.id)).
+                        {filteredUsers(users.data).filter((i) => storedUsers?.includes(i.id)).
                             map(user => <Card user={user} key={user.id} selected={true} />)}
 
                         {storedUsers[0] && <button onClick={clearHandler}>Clear the list</button>}

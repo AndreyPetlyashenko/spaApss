@@ -25,7 +25,7 @@ const Card = ({ user, selected }) => {
     const pickUserHandler = (e) => {
         e.stopPropagation()
         e.target.style.border='5px solid black'
-        !users.selectedUsers.includes(user.id) &&
+        !users.selectedUsers?.includes(user.id) &&
             setUsers(() => ({ ...users, selectedUsers: users.selectedUsers.concat([user.id]) }))
     }
     const removeUserHandler = () => {
