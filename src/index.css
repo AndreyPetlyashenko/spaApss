@@ -1,0 +1,62 @@
+body {
+  margin: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.listContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+.cardContainer{
+  border: 1px solid white;
+  text-align: center;
+  max-width: 175px;
+  background-color: #172430;
+  position: relative;
+  margin: 5px;
+}
+.imgContainer img{
+  max-width: 100%;
+  object-fit: cover;
+}
+.detailsUserContainer{
+  position: absolute;
+  background-color: #071a0d;
+  opacity: 0.8;
+  border: 1px solid white;
+  top: 0px;
+  left: 0px;
+  max-height: 67%;
+  font-size: 18px;
+  max-width: 100%;
+}
+.detailsUserContainer p{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 92%;
+  margin: 0;
+  padding: 17px;
+}
+.selectedListContainer{
+  background-color: #d3d3d3;
+}
+ button{
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+  background-color: white;
+  border: none;
+  margin: 5px;
+}
+button{
+  margin: 5px;
+}
+.selectedListContainer .cardContainer ~ button{
+  border: 1px solid black;
+  background-color: #928fab;
+  color: white;
+}
