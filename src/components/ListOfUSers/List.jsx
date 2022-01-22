@@ -14,7 +14,7 @@ const List = ({ selectedUsersIsShown, filterOptions }) => {
         if (localStorage.getItem("selectedUsers") == undefined) {
             localStorage.setItem("selectedUsers", JSON.stringify([]))
         }
-        users.selectedUsers.map((user) => user && !storedUsers.includes(user) && storedUsers.push(user))
+        users.selectedUsers.map((user) => !storedUsers?.includes(user) && storedUsers?.push(user))
         localStorage.setItem("selectedUsers", JSON.stringify(storedUsers))
     }
     addInfoToLocalStorage()
