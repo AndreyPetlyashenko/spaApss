@@ -12,7 +12,7 @@ const List = ({ selectedUsersIsShown, filterOptions }) => {
         // localStorage.clear();
       let  storedUsers = JSON.parse(localStorage.getItem("selectedUsers"));
         console.log(storedUsers, 'storedUSERS')
-        if (localStorage.getItem("selectedUsers") == undefined) {
+        if (storedUsers == undefined || storedUsers == null) {
             localStorage.setItem("selectedUsers", JSON.stringify([]))
         }
         users.selectedUsers.map((user) => !storedUsers.includes(user) && storedUsers.push(user))
