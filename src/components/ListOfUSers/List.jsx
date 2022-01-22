@@ -6,17 +6,16 @@ import { UserContext } from "./UserContext"
 const List = ({ selectedUsersIsShown, filterOptions }) => {
     const [users, setUsers] = useContext(UserContext)
 
-   
-
-   
-        // localStorage.clear();
-      let  storedUsers = JSON.parse(localStorage.getItem("selectedUsers"));
-        console.log(storedUsers, 'storedUSERS')
-        if (storedUsers == undefined || storedUsers == null) {
-            localStorage.setItem("selectedUsers", JSON.stringify([]))
-        }
-        users.selectedUsers.map((user) => !storedUsers.includes(user) && storedUsers.push(user))
-        localStorage.setItem("selectedUsers", JSON.stringify(storedUsers))
+    // localStorage.clear(); 
+    let  storedUsers = JSON.parse(localStorage.getItem("selectedUsers"));
+    
+    if (storedUsers == undefined || storedUsers[0] == `null`) {
+        localStorage.setItem("selectedUsers", JSON.stringify([]))
+    }
+    
+    console.log(storedUsers, 'storedUSERS')
+    users.selectedUsers.map((user) => !storedUsers.includes(user) && storedUsers.push(user))
+    localStorage.setItem("selectedUsers", JSON.stringify(storedUsers))
     
    
     const clearHandler = () => {
