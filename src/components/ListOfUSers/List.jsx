@@ -47,7 +47,7 @@ const List = ({ selectedUsersIsShown, filterOptions }) => {
                         {filteredUsers(users.data).filter((i) => storedUsers?.includes(i.id)).
                             map(user => <Card user={user} key={user.id} selected={true} />)}
 
-                        {storedUsers[0] && <button onClick={clearHandler}>Clear the list</button>}
+                        {storedUsers?[0] && <button onClick={clearHandler}>Clear the list</button>}
                     </div>
                     :
                     <div className="listContainer">
