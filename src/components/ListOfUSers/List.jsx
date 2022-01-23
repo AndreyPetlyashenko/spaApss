@@ -23,13 +23,12 @@ const List = ({ selectedUsersIsShown, filterOptions }) => {
   };
   safeUsersInLocalStorage();
 
-
   const removeUserHandler = (id) => {
-    let storedUsers = JSON.parse(localStorage.getItem("selectedUsers")).filter(
-      (storedID) => storedID != id
-    );
-    localStorage.setItem("selectedUsers", JSON.stringify(storedUsers));
-    setUsers(() => ({ ...users, selectedUsers: storedUsers }));
+
+    const updatedUsers = storedUsers.filter((storedID) => storedID != id);
+    localStorage.setItem("selectedUsers", JSON.stringify(updatedUsers));
+  
+    setUsers(() => ({ ...users, selectedUsers: updatedUsers }));
   };
 
   const filteredUsers = (users) => {
@@ -44,7 +43,9 @@ const List = ({ selectedUsersIsShown, filterOptions }) => {
         return Number(filterOptions.id) === i.id;
       }
       if (filterOptions.login) {
-        return i.login.toLowerCase().includes(filterOptions.login.toLowerCase());
+        return i.login
+          .toLowerCase()
+          .includes(filterOptions.login.toLowerCase());
       }
       return i;
     });
